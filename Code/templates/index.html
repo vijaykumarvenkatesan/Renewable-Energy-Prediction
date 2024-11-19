@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Power Generation Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Power Generation Forecast</h1>
+        <form action="/forecast" method="POST">
+            <label for="power_type">Choose Power Type:</label>
+            <select name="power_type" id="power_type">
+                <option value="solar">Solar</option>
+                <option value="wind">Wind</option>
+            </select>
+
+            <label for="forecast_unit">Forecast Unit:</label>
+            <select name="forecast_unit" id="forecast_unit">
+                <option value="hours">Hours</option>
+                <option value="days">Days</option>
+            </select>
+
+            <label for="forecast_length">Forecast Length (max 3 days):</label>
+            <input type="number" name="forecast_length" min="1" max="72" required>
+
+
+            <button type="submit">Get Forecast</button>
+        </form>
+    </div>
+</body>
+</html>

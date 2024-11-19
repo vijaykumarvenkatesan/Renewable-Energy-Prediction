@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forecast Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ power_type.capitalize() }} Power Forecast ({{ forecast_length }} {{ forecast_unit }})</h1>
+        <ul>
+            {% for value in forecast %}
+                <li>{{ value }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Model Performance Metrics:</h2>
+        <p>MAE: {{ mae }}</p>
+        <p>MSE: {{ mse }}</p>
+        <p>RMSE: {{ rmse }}</p>
+
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>
